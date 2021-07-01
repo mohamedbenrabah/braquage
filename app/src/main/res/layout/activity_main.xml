@@ -5,134 +5,136 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#E3D6FD"
     tools:context=".MainActivity">
 
     <TextView
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#6329C8"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenue"/>
+        android:text="Créer un compte\npour commencer"/>
 
     <LinearLayout
-        android:layout_marginTop="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textSize="17sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom : "/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/editNom"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textSize="17sp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prenom : "/>
+            android:hint="Nom"
+            android:paddingBottom="15dp"
+            android:inputType="text"
+            android:textSize="20sp"/>
 
         <EditText
-            android:id="@+id/editPrenom"
-            android:layout_marginLeft="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textSize="17sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email : "/>
-
-        <EditText
-            android:inputType="textEmailAddress"
             android:id="@+id/editEmail"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textSize="17sp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mot de passe : "/>
+            android:hint="Email"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnDateNaiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E3D6FD"
+            android:text="01-01-1900"
+            android:textSize="19sp"
+            android:textColor="#6E6A6A"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="5dp"
+            android:textStyle="normal"
+            android:layout_gravity="start"
+            android:textAlignment="viewStart"/>
+
+        <RadioGroup
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/hommeRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Homme"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/femmeRadio"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Femme"
+                android:textSize="18sp"/>
+
+        </RadioGroup>
 
         <EditText
-            android:inputType="textPassword"
             android:id="@+id/editPassword"
-            android:layout_marginLeft="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="18dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textSize="17sp"
-            android:layout_weight="60"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Confirmer mot de passe : "/>
+            android:hint="Mot de passe"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/editConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirmer mot de passe"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp"
             android:inputType="textPassword"
-            android:id="@+id/editPasswordConfirm"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="40"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:maxLines="1"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/BtnInscription"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6329C8"
+            android:textColor="@color/white"
+            android:text="Inscription"/>
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vous êtes déjà inscrit ?"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cliquez ici"
+                android:onClick="connexion"
+                android:textStyle="bold"
+                android:textColor="#6329C8"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
