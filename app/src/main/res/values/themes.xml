@@ -13,4 +13,14 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">#6329C8</item>
+        <item name="colorAccent">#6329C8</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">#6329C8</item>
+        <item name="android:textColorHighlight">#679</item>
+        <item name="android:textColorLink">#9E9E9E</item>
+        <item name="backgroundTint">#f8f8f8</item>
+    </style>
 </resources>

@@ -176,6 +176,46 @@
 
         </LinearLayout>
 
+        <!--
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            app:errorTextAppearance="@color/violet">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="Email"
+                android:drawablePadding="8dp"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/TextLabel"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        -->
+
     </LinearLayout>
 
 </ScrollView>

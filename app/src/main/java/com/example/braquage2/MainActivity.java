@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
     int annee,mois,jour;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
         getSupportActionBar().hide();
         recupreration();
 
@@ -100,10 +107,25 @@ public class MainActivity extends AppCompatActivity {
              }
              user=new User(nom,sexe,btnDateNaiss.getText().toString(),email,password,"no-photo");
              myRef.child("User").push().setValue(user);
-             Intent intent=new Intent(this,home.class);
-             startActivity(intent);
-             Toast.makeText(MainActivity.this, "Inscription reussite", Toast.LENGTH_SHORT).show();
+             register(email,password);
         }
+    }
+
+    private void register(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Intent intent=new Intent(MainActivity.this,home.class);
+                            startActivity(intent);
+                            Toast.makeText(MainActivity.this, "Inscription réussite", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this, "Erreur d'inscription",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private boolean isValidEmailId(String email){
@@ -143,7 +165,19 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void getSingleData(View view){
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent=new Intent(MainActivity.this,home.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    /*public void getSingleData(View view){
         FirebaseDatabase.getInstance().getReference().child("Database").child("text").child("names").child("numbers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -155,9 +189,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
-    String names="";
+    /*String names="";
     public void getMultipleData(View view) {
         database=FirebaseDatabase.getInstance();
         database.getReference().child("Database").child("User").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -176,9 +210,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
-    String emails="";
+    /*String emails="";
     public void queryGetName(View view){
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference().child("Database").child("User");
@@ -203,9 +237,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
-    public void deleteUser(View view){
+    /*public void deleteUser(View view){
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference().child("Database").child("User");
         Query query=databaseReference.orderByChild("nom").equalTo("mohamed");
@@ -227,5 +261,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 }
