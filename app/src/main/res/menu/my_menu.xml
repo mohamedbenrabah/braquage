@@ -6,4 +6,9 @@
         android:id="@+id/deconnexion"
         android:title="Deconnexion"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/home"
+        android:title="home"
+        app:showAsAction="never"/>
 </menu>
