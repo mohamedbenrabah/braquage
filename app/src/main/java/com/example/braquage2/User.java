@@ -2,6 +2,7 @@ package com.example.braquage2;
 
 public class User {
 
+    private String id;
     private String nom;
     private String sexe;
     private String dateNaissance;
@@ -13,13 +14,22 @@ public class User {
 
     }
 
-    public User(String nom, String sexe, String dateNaissance, String email, String password, String photo) {
+    public User(String id,String nom, String sexe, String dateNaissance, String email, String password, String photo) {
+        this.id = id;
         this.nom = nom;
         this.sexe = sexe;
         this.dateNaissance = dateNaissance;
         this.email = email;
         this.password = password;
         this.photo = photo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNom() {

@@ -99,15 +99,17 @@ public class MainActivity extends AppCompatActivity {
             editConfirmPassword.setError("Mot de passe invalide");
         }
         else{
-             database=FirebaseDatabase.getInstance();
-             myRef=database.getReference("Database");
-             String sexe="femme";
-             if(RadioButtonHomme.isChecked()){
-                 sexe="homme";
-             }
-             user=new User(nom,sexe,btnDateNaiss.getText().toString(),email,password,"no-photo");
-             myRef.child("User").push().setValue(user);
-             register(email,password);
+            database=FirebaseDatabase.getInstance();
+            myRef=database.getReference("Database");
+            String sexe="femme";
+            if(RadioButtonHomme.isChecked()){
+                sexe="homme";
+            }
+            //myRef.child("User").push().setValue(user);
+            String keyID=myRef.child("User").push().getKey();
+            user=new User(keyID,nom,sexe,btnDateNaiss.getText().toString(),email,password,"no-photo");
+            myRef.child("User").child(keyID).setValue(user);
+            register(email,password);
         }
     }
 
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent=new Intent(MainActivity.this,home.class);
+                            Intent intent=new Intent(MainActivity.this,NumeroActivity.class);
                             startActivity(intent);
                             Toast.makeText(MainActivity.this, "Inscription réussite", Toast.LENGTH_SHORT).show();
                         }
@@ -177,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void getSingleData(View view){
+    /*
+    public void getSingleData(View view){
         FirebaseDatabase.getInstance().getReference().child("Database").child("text").child("names").child("numbers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -189,7 +192,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }*/
+    }
+    */
 
     /*String names="";
     public void getMultipleData(View view) {
