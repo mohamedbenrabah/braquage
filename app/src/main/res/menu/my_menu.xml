@@ -2,6 +2,12 @@
 <menu
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/parametres"
+        android:title="Paramétres"
+        app:showAsAction="never"/>
+
     <item
         android:id="@+id/deconnexion"
         android:title="Deconnexion"
@@ -9,6 +15,8 @@
 
     <item
         android:id="@+id/home"
+        android:icon="@drawable/ic_home"
         android:title="home"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
+
 </menu>

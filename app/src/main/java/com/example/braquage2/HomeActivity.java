@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
@@ -29,7 +29,7 @@ public class home extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent=new Intent(home.this,ConnexionActivity.class);
+            Intent intent=new Intent(this,ConnexionActivity.class);
             startActivity(intent);
             finish();
         }
@@ -49,8 +49,10 @@ public class home extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        else if(item.getItemId()==R.id.parametres){
+            Intent intent=new Intent(this,ParametresActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

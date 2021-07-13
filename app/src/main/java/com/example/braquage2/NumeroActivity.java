@@ -47,7 +47,7 @@ public class NumeroActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Intent intent=new Intent(NumeroActivity.this,ConnexionActivity.class);
+            Intent intent=new Intent(this,ConnexionActivity.class);
             startActivity(intent);
             finish();
         }
@@ -66,6 +66,14 @@ public class NumeroActivity extends AppCompatActivity {
             Intent intent=new Intent(this,ConnexionActivity.class);
             startActivity(intent);
             finish();
+        }
+        else if(item.getItemId()==R.id.home){
+            Intent intent=new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }
+        else if(item.getItemId()==R.id.parametres){
+            Intent intent=new Intent(this,ParametresActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
